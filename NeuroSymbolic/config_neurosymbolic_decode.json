@@ -1,0 +1,44 @@
+{
+  "training": {
+    "optimizer": "adam",
+    "clip_c": 1,
+    "lrate": 0.001,
+    "epochs": 100
+  },
+  "management": {
+    "monitor_loss": 1000,
+    "print_samples": false,
+    "evaluate": false
+  },
+  "data": {
+    "src": "../data/bucketed_events_train-DRL-baby.txt",
+    "val_src": "../data/bucketed_events_val-DRL_nameFix.txt",
+    "test_src": "../data/bucketed_events_test_nameFix.txt",
+    "vocab_file": "../data/scifi-fixNames.vocab",
+    "unigram_probs": "../data/unigram_probs_moreNames.pickle",
+    "bigram": false,
+    "max_length": 5,
+    "task": "translation",
+    "load_dir": "./models",
+    "preload_weights": "model_forward-buckets___2019-09-27_hidden_continuation_False__hidden_dim_512__emb_dim_512__optimizer_adam__n_layers_src_3__n_layers_trg_1__bidir_Truebigram_False__epoch_47.model",
+    "verbose": false,
+    "top_n": 15
+  },
+  "model": {
+    "hidden_dim": 512,
+    "use_dropout": false,
+    "dim_word_src": 512,
+    "n_layers_src": 3,
+    "n_layers_trg": 1,
+    "bidirectional": true,
+    "attention_mode":"",
+    "model_name": "E2E-buckets",
+    "decode": "beam_search",
+    "beam_size": 5,
+    "hidden": true,
+    "optimizer": "adam",
+    "dropout":  0.3,
+    "causal": true,
+    "forced_frame": true
+  }
+}
